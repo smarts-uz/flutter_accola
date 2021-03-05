@@ -1,3 +1,4 @@
+import 'package:accoola/pages/home/home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -40,18 +41,18 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-            Container(
-              margin: EdgeInsets.only(left: size.width*0.05, right: size.width*0.05,top: size.height*0.07),
-              width: size.width,
-              height: size.height*0.08,
-              decoration: BoxDecoration(
-                color: Color(0xFF85bb65),
-                borderRadius: BorderRadius.circular(size.width*0.02)
-              ),
-              child: GestureDetector(
-                onTap: (){
-
-                },
+            GestureDetector(
+              onTap: (){
+                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>HomePage()));
+              },
+              child: Container(
+                margin: EdgeInsets.only(left: size.width*0.05, right: size.width*0.05,top: size.height*0.07),
+                width: size.width,
+                height: size.height*0.08,
+                decoration: BoxDecoration(
+                  color: Color(0xFF85bb65),
+                  borderRadius: BorderRadius.circular(size.width*0.02)
+                ),
                 child: Center(
                   child: Text(
                     'Sign in',
