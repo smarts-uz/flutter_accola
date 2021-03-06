@@ -11,12 +11,41 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Color(0xFFE5E5E5),
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
-            child: Column(
-              children: <Widget>[],
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    CardButton(imageUrl:'assets/icons/ic_casheloc.png',title: 'Счета',press:(){}),
+                    CardButton(imageUrl:'assets/icons/ic_casheloc.png',title: 'Счета',press:(){}),
+                    CardButton(imageUrl:'assets/icons/ic_casheloc.png',title: 'Счета',press:(){}),
+                  ],
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: size.width*0.02, right:size.width*0.02 ),
+                  child: Column(
+                    children: <Widget>[
+                      CardButton(imageUrl:'assets/icons/ic_casheloc.png',title: 'Счета',press:(){}),
+                      CardButton(imageUrl:'assets/icons/ic_casheloc.png',title: 'Счета',press:(){}),
+                      CardButton(imageUrl:'assets/icons/ic_casheloc.png',title: 'Счета',press:(){}),
+                    ],
+                  ),
+                ),
+                Column(
+                  children: <Widget>[
+                    CardButton(imageUrl:'assets/icons/ic_casheloc.png',title: 'Счета',press:(){}),
+                    CardButton(imageUrl:'assets/icons/ic_casheloc.png',title: 'Счета',press:(){}),
+                    Container(
+                      margin: EdgeInsets.only(top: size.width*0.04),
+                      width: size.width / 3.5,
+                      height: size.width / 3.5,
+                    )
+                  ],
+                ),
+              ],
             ),
           ),
         ),
@@ -43,13 +72,14 @@ class CardButton extends StatelessWidget {
     return GestureDetector(
       onTap: press,
       child: Container(
+        margin: EdgeInsets.only(top: size.width*0.04),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(size.width * 0.05),
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-              offset: Offset(0, 0),
-              blurRadius: 60,
+              offset: Offset(0, 10),
+              blurRadius: 10,
               color: Colors.black.withOpacity(0.07),
             ),
           ],
