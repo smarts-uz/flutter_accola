@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class SumPage extends StatefulWidget {
   @override
@@ -26,16 +27,17 @@ class _SumPageState extends State<SumPage> {
               Column(
                 children: <Widget>[
                   Container(
-                    child: Padding(
-                      padding: EdgeInsets.all(size.width * 0.1),
-                      child: Text(
-                        "05.03.2021",
-                        style: TextStyle(
-                          color: Color(0xff6D69CF),
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                        ),
+                    width: size.width,
+                    height: size.height*0.05,
+                    margin: EdgeInsets.only(top: size.width*0.03),
+                    child: Text(
+                      "05.03.2021",
+                      style: TextStyle(
+                        color: Color(0xff6D69CF),
+                        fontSize: 35,
+                        fontWeight: FontWeight.bold,
                       ),
+                      textAlign: TextAlign.center,
                     ),
                   ),
                   Container(
@@ -44,13 +46,16 @@ class _SumPageState extends State<SumPage> {
                     margin: EdgeInsets.only(
                         top: size.width * 0.1,
                         left: size.width * 0.05,
-                        right: size.width * 0.05),
+                        right: size.width * 0.05,),
                     padding: EdgeInsets.only(
-                      top: size.width * 0.1
+                      top: size.width * 0.1,
+                      left: size.width * 0.055,
+                      right: size.width * 0.055,
+                      bottom: size.width * 0.06
                     ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(size.width * 0.04),
-                      color: Colors.white,
+                      color: Color(0xff6D69CF),
                       boxShadow: [
                         BoxShadow(
                           offset: Offset(0, 10),
@@ -59,27 +64,45 @@ class _SumPageState extends State<SumPage> {
                         ),
                       ],
                     ),
-                    child: RichText(
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text: 'Итого\n',
-                            style: Theme.of(context).textTheme.headline4.copyWith(
-                              color: Color(0xff6D69CF),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 50
-                            ),
+                    child: Row(
+                      children: <Widget>[
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: 'Итого\n',
+                                style: Theme.of(context).textTheme.headline4.copyWith(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 40
+                                ),
+                              ),
+                              TextSpan(
+                                text: "10 000 000 UZS",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 37,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
                           ),
-                          TextSpan(
-                            text: "10 000 000 UZS",
-                            style: TextStyle(
-                              color: Color(0xff6D69CF),
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    height: size.height,
+                    width: size.width,
+                    margin: EdgeInsets.only(top: size.width* 0.08),
+                    child: ListView(
+                      children: [
+                        _SubButtons(),
+                        _SubButtons(),
+                        _SubButtons(),
+                        _SubButtons(),
+                        _SubButtons(),
+                      ],
                     ),
                   ),
                 ],
@@ -91,3 +114,37 @@ class _SumPageState extends State<SumPage> {
     );
   }
 }
+
+class _SubButtons extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+      Size size = MediaQuery.of(context).size;
+    return Container(
+      width: size.width,
+      height: size.height * 0.1,
+      margin: EdgeInsets.only(
+          top: size.width * 0.03,
+          left: size.width * 0.05,
+          right: size.width * 0.05),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(size.width * 0.04),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            offset: Offset(0, 10),
+            blurRadius: 10,
+            color: Colors.black.withOpacity(0.29),
+          ),
+        ],
+      ),
+      child: Center(
+        child: Text(
+          "Сырье и материалы",
+          style: TextStyle(fontSize: size.width*0.07, fontWeight: FontWeight.bold, color: Color(0xff6D69CF)),
+          textAlign: TextAlign.center,
+        ),
+      ),
+    );
+  }
+}
+
