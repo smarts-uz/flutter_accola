@@ -1,4 +1,5 @@
 import 'package:accoola/pages/login/login_page.dart';
+import 'package:accoola/pages/storage/stroge_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: strogePage(),
     );
   }
 }
