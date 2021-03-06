@@ -1,24 +1,27 @@
-import 'package:accoola/pages/Summa/Sum_Page.dart';
+import 'package:accoola/contsant.dart';
+import 'package:accoola/pages/summa/sum_page.dart';
 import 'package:accoola/pages/login/login_page.dart';
 import 'package:flutter/material.dart';
 
 
-class strogePage extends StatefulWidget {
+
+class StrogePage extends StatefulWidget {
   @override
-  _strogePageState createState() => _strogePageState();
+  _StrogePageState createState() => _StrogePageState();
 }
 
-class _strogePageState extends State<strogePage> {
+class _StrogePageState extends State<StrogePage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0XFF5954D3).withOpacity(0.8),
+        backgroundColor: kPrimaryColor.withOpacity(0.8),
         title: Text(
           "Склад",
-          style: TextStyle(fontSize: 30),
+          style: TextStyle(fontSize: size.width*0.065),
         ),
+        centerTitle: true,
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -43,7 +46,7 @@ class _strogePageState extends State<strogePage> {
                 child: Center(
                   child: Text(
                     "Товары на складе",
-                    style: TextStyle(fontSize: size.width*0.07, fontWeight: FontWeight.bold, color: Color(0xff6D69CF)),
+                    style: TextStyle(fontSize: size.width*0.07, fontWeight: FontWeight.bold, color: kPrimaryColor),
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -73,7 +76,7 @@ class _strogePageState extends State<strogePage> {
                   child: Center(
                     child: Text(
                       "Сырье и материалы",
-                      style: TextStyle(fontSize: size.width*0.07, fontWeight: FontWeight.bold, color: Color(0xff6D69CF)),
+                      style: TextStyle(fontSize: size.width*0.07, fontWeight: FontWeight.bold, color: kPrimaryColor),
                       textAlign: TextAlign.center,
                     ),
                   ),

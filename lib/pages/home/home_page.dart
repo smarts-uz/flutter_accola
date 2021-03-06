@@ -1,3 +1,5 @@
+import 'package:accoola/contsant.dart';
+import 'package:accoola/pages/storage/stroge_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -10,44 +12,93 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Column(
-                  children: <Widget>[
-                    CardButton(imageUrl:'assets/icons/ic_casheloc.png',title: 'Счета',press:(){}),
-                    CardButton(imageUrl:'assets/icons/ic_casheloc.png',title: 'Счета',press:(){}),
-                    CardButton(imageUrl:'assets/icons/ic_casheloc.png',title: 'Счета',press:(){}),
-                  ],
-                ),
-                Container(
-                  margin: EdgeInsets.only(left: size.width*0.02, right:size.width*0.02 ),
-                  child: Column(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: Stack(
+          children: <Widget>[
+            Positioned(
+              child: Text(
+                'Shodmonov Uchqun',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: kPrimaryColor, fontSize: size.width * 0.08, fontWeight: FontWeight.bold),
+              ),
+              top: size.height * 0.11,
+              left: 0.0,
+              right: 0.0,
+            ),
+            Positioned(
+              top: 0.0,
+              bottom: 0.0,
+              left: 0.0,
+              right: 0.0,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      CardButton(imageUrl:'assets/icons/ic_casheloc.png',title: 'Счета',press:(){}),
-                      CardButton(imageUrl:'assets/icons/ic_casheloc.png',title: 'Счета',press:(){}),
-                      CardButton(imageUrl:'assets/icons/ic_casheloc.png',title: 'Счета',press:(){}),
+                      CardButton(
+                          imageUrl: 'assets/icons/ic_casheloc.png',
+                          title: 'Счета',
+                          press: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => StrogePage()));
+                          }),
+                      CardButton(
+                          imageUrl: 'assets/icons/ic_debitor.png',
+                          title: 'Кредиторы',
+                          press: () {}),
+                      CardButton(
+                          imageUrl: 'assets/icons/ic_cotrudniki.png',
+                          title: 'Сотрудники',
+                          press: () {}),
                     ],
                   ),
-                ),
-                Column(
-                  children: <Widget>[
-                    CardButton(imageUrl:'assets/icons/ic_casheloc.png',title: 'Счета',press:(){}),
-                    CardButton(imageUrl:'assets/icons/ic_casheloc.png',title: 'Счета',press:(){}),
-                    Container(
-                      margin: EdgeInsets.only(top: size.width*0.04),
-                      width: size.width / 3.5,
-                      height: size.width / 3.5,
-                    )
-                  ],
-                ),
-              ],
+                  Container(
+                    margin: EdgeInsets.only(
+                        left: size.width * 0.02, right: size.width * 0.02),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        CardButton(
+                            imageUrl: 'assets/icons/ic_sklad.png',
+                            title: 'Склад',
+                            press: () {}),
+                        CardButton(
+                            imageUrl: 'assets/icons/ic_osnovno.png',
+                            title: 'Основные средства',
+                            press: () {}),
+                        CardButton(
+                            imageUrl: 'assets/icons/ic_creditor.png',
+                            title: 'Займы Кредиты',
+                            press: () {}),
+                      ],
+                    ),
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      CardButton(
+                          imageUrl: 'assets/icons/ic_debitor.png',
+                          title: 'Счета',
+                          press: () {}),
+                      CardButton(
+                          imageUrl: 'assets/icons/ic_casheloc.png',
+                          title: 'Задолженность по налогам',
+                          press: () {}),
+                      Container(
+                        margin: EdgeInsets.only(top: size.width * 0.04),
+                        width: size.width / 3.5,
+                        height: size.width / 3.5,
+                      )
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );
@@ -72,7 +123,8 @@ class CardButton extends StatelessWidget {
     return GestureDetector(
       onTap: press,
       child: Container(
-        margin: EdgeInsets.only(top: size.width*0.04),
+        padding: EdgeInsets.only(top: size.width * 0.03),
+        margin: EdgeInsets.only(top: size.width * 0.03),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(size.width * 0.05),
           color: Colors.white,
@@ -84,25 +136,29 @@ class CardButton extends StatelessWidget {
             ),
           ],
         ),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Image(
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: Image(
                 image: AssetImage(imageUrl),
                 width: size.width * 0.2,
               ),
-              Text(
-                title,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontSize: size.width * 0.04,
-                    fontWeight: FontWeight.w400,
-                    fontStyle: FontStyle.normal,
-                    color: Color(0xFF616AB2)),
+            ),
+            Expanded(
+              child: Container(
+                margin: EdgeInsets.only(top: size.width * 0.01),
+                child: Text(
+                  title,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: size.width * 0.04,
+                      fontWeight: FontWeight.w400,
+                      fontStyle: FontStyle.normal,
+                      color: kPrimaryColor),
+                ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
         width: size.width / 3.5,
         height: size.width / 3.5,
