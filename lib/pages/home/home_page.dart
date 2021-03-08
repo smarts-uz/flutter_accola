@@ -1,4 +1,5 @@
 import 'package:accoola/contsant.dart';
+import 'package:accoola/pages/members/members_page.dart';
 import 'package:accoola/pages/storage/stroge_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -12,94 +13,104 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: Stack(
-          children: <Widget>[
-            Positioned(
-              child: Text(
-                'Shodmonov Uchqun',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    color: kPrimaryColor, fontSize: size.width * 0.08, fontWeight: FontWeight.bold),
-              ),
-              top: size.height * 0.11,
-              left: 0.0,
-              right: 0.0,
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Stack(
+        children: <Widget>[
+          Positioned(
+            child: Text(
+              'Shodmonov Uchqun',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: kPrimaryColor, fontSize: size.width * 0.08, fontWeight: FontWeight.bold),
             ),
-            Positioned(
-              top: 0.0,
-              bottom: 0.0,
-              left: 0.0,
-              right: 0.0,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Column(
+            top: size.height * 0.13,
+            left: 0.0,
+            right: 0.0,
+          ), Positioned(
+            child: Text(
+              '\$ 10 000.00',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: kPrimaryColor, fontSize: size.width * 0.08, fontWeight: FontWeight.bold),
+            ),
+            top: size.height * 0.18,
+            left: 0.0,
+            right: 0.0,
+          ),
+          Positioned(
+            top: 0.0,
+            bottom: 0.0,
+            left: 0.0,
+            right: 0.0,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    CardButton(
+                        imageUrl: 'assets/icons/ic_casheloc.png',
+                        title: 'Счета',
+                        press: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => StrogePage()));
+                        }),
+                    CardButton(
+                        imageUrl: 'assets/icons/ic_debitor.png',
+                        title: 'Кредиторы',
+                        press: () {}),
+                    CardButton(
+                        imageUrl: 'assets/icons/ic_cotrudniki.png',
+                        title: 'Сотрудники',
+                        press: () {
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => membersPage()));
+                        }),
+                  ],
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                      left: size.width * 0.02, right: size.width * 0.02),
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       CardButton(
-                          imageUrl: 'assets/icons/ic_casheloc.png',
-                          title: 'Счета',
-                          press: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => StrogePage()));
-                          }),
-                      CardButton(
-                          imageUrl: 'assets/icons/ic_debitor.png',
-                          title: 'Кредиторы',
+                          imageUrl: 'assets/icons/ic_sklad.png',
+                          title: 'Склад',
                           press: () {}),
                       CardButton(
-                          imageUrl: 'assets/icons/ic_cotrudniki.png',
-                          title: 'Сотрудники',
+                          imageUrl: 'assets/icons/ic_osnovno.png',
+                          title: 'Основные средства',
+                          press: () {}),
+                      CardButton(
+                          imageUrl: 'assets/icons/ic_creditor.png',
+                          title: 'Займы Кредиты',
                           press: () {}),
                     ],
                   ),
-                  Container(
-                    margin: EdgeInsets.only(
-                        left: size.width * 0.02, right: size.width * 0.02),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        CardButton(
-                            imageUrl: 'assets/icons/ic_sklad.png',
-                            title: 'Склад',
-                            press: () {}),
-                        CardButton(
-                            imageUrl: 'assets/icons/ic_osnovno.png',
-                            title: 'Основные средства',
-                            press: () {}),
-                        CardButton(
-                            imageUrl: 'assets/icons/ic_creditor.png',
-                            title: 'Займы Кредиты',
-                            press: () {}),
-                      ],
-                    ),
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      CardButton(
-                          imageUrl: 'assets/icons/ic_debitor.png',
-                          title: 'Счета',
-                          press: () {}),
-                      CardButton(
-                          imageUrl: 'assets/icons/ic_casheloc.png',
-                          title: 'Задолженность по налогам',
-                          press: () {}),
-                      Container(
-                        margin: EdgeInsets.only(top: size.width * 0.04),
-                        width: size.width / 3.5,
-                        height: size.width / 3.5,
-                      )
-                    ],
-                  ),
-                ],
-              ),
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    CardButton(
+                        imageUrl: 'assets/icons/ic_debitor.png',
+                        title: 'Счета',
+                        press: () {}),
+                    CardButton(
+                        imageUrl: 'assets/icons/ic_casheloc.png',
+                        title: 'Задолженность по налогам',
+                        press: () {}),
+                    Container(
+                      margin: EdgeInsets.only(top: size.width * 0.04),
+                      width: size.width / 3.5,
+                      height: size.width / 3.5,
+                    )
+                  ],
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
