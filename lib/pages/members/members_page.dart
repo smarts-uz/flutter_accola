@@ -227,13 +227,8 @@ class _memberContainerState extends State<memberContainer> {
           Container(
             width: size.width*0.13,
             height: size.height*0.06,
-            child: ClipRRect(
-              child: FittedBox(
-                child: Image(
-                    image: AssetImage('assets/images/person.jpg'),
-                ),
-                fit: BoxFit.fill,
-              ),borderRadius: BorderRadius.circular(2222),
+            child: Image(
+                image: AssetImage('assets/images/person.jpg'),
             ),
           ),
           Container(
