@@ -1,5 +1,5 @@
-import 'package:accoola/service/models/login_request.dart';
-import 'package:accoola/service/models/login_response.dart';
+import 'package:accoola/service/models/auth/login_request.dart';
+import 'package:accoola/service/models/auth/login_response.dart';
 import 'package:accoola/service/service/users/users_api_provider.dart';
 
 class UsersRepository {

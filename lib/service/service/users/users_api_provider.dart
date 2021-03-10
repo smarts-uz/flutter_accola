@@ -2,13 +2,12 @@ library service;
 
 import 'dart:async';
 import 'dart:convert';
-import 'package:accoola/service/models/login_request.dart';
-import 'package:accoola/service/models/login_response.dart';
+import 'package:accoola/service/models/auth/login_request.dart';
+import 'package:accoola/service/models/auth/login_response.dart';
 import 'package:accoola/service/models/message_response.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../api.dart';
-import '../../config.dart';
 
 Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 

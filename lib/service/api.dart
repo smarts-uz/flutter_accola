@@ -37,9 +37,8 @@ class Api {
     String basicAuth =
         'Basic ' + base64Encode(utf8.encode('$username:$password'));
     final Map<String, String> headers = {
-      // "Content-type": "application/json",
-      // "Accept": "application/json",
-      'authorization': basicAuth,
+      "content-type": "application/json",
+      "accept": "application/json",
     };
     return headers;
   }

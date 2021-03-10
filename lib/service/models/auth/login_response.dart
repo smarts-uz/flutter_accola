@@ -6,8 +6,10 @@ class LoginResponseModel {
 
   LoginResponseModel({this.status, this.auth});
 
-  LoginResponseModel copyWith(bool status,
-      AuthModel auth,) =>
+  LoginResponseModel copyWith(
+    bool status,
+    AuthModel auth,
+  ) =>
       LoginResponseModel(
         status: status ?? this.status,
         auth: auth ?? this.auth,
@@ -15,7 +17,6 @@ class LoginResponseModel {
 
   factory LoginResponseModel.fromJson(String str) =>
       LoginResponseModel.fromMap(json.decode(str));
-
 
   String toJson() => json.encode(toMap());
 
@@ -25,8 +26,7 @@ class LoginResponseModel {
         auth: json["auth"],
       );
 
-  Map<String, dynamic> toMap() =>
-      {
+  Map<String, dynamic> toMap() => {
         "status": status,
         "auth": auth,
       };
@@ -39,9 +39,11 @@ class AuthModel {
 
   AuthModel({this.username, this.role, this.base});
 
-  AuthModel copyWith(String username,
-      String role,
-      List<BaseModel> base,) =>
+  AuthModel copyWith(
+    String username,
+    String role,
+    List<BaseModel> base,
+  ) =>
       AuthModel(
         username: username ?? this.username,
         role: role ?? this.role,
@@ -52,18 +54,17 @@ class AuthModel {
 
   String toJson() => json.encode(toMap());
 
-  factory AuthModel.fromMap(Map<String, dynamic> json) =>
-      AuthModel(
+  factory AuthModel.fromMap(Map<String, dynamic> json) => AuthModel(
         username: json["username"],
         role: json["role"],
-        base: json["base"],
+        base:
+            List<BaseModel>.from(json["base"].map((x) => BaseModel.fromMap(x))),
       );
 
-  Map<String, dynamic> toMap() =>
-      {
+  Map<String, dynamic> toMap() => {
         "username": username,
         "role": role,
-        "base": base,
+        "base": List<dynamic>.from(base.map((x) => x.toMap())),
       };
 }
 
@@ -75,10 +76,12 @@ class BaseModel {
 
   BaseModel({this.basename, this.baseID, this.login, this.password});
 
-  BaseModel copyWith(String basename,
-      String baseID,
-      String login,
-      String password,) =>
+  BaseModel copyWith(
+    String basename,
+    String baseID,
+    String login,
+    String password,
+  ) =>
       BaseModel(
         basename: basename ?? this.basename,
         baseID: baseID ?? this.baseID,
@@ -90,16 +93,14 @@ class BaseModel {
 
   String toJson() => json.encode(toMap());
 
-  factory BaseModel.fromMap(Map<String, dynamic> json) =>
-      BaseModel(
+  factory BaseModel.fromMap(Map<String, dynamic> json) => BaseModel(
         basename: json["basename"],
         baseID: json["baseID"],
         login: json["login"],
         password: json["password"],
       );
 
-  Map<String, dynamic> toMap() =>
-      {
+  Map<String, dynamic> toMap() => {
         "basename": basename,
         "baseID": baseID,
         "login": login,
