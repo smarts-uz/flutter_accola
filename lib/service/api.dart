@@ -39,6 +39,7 @@ class Api {
     final Map<String, String> headers = {
       "content-type": "application/json",
       "accept": "application/json",
+      "authorization": basicAuth,
     };
     return headers;
   }

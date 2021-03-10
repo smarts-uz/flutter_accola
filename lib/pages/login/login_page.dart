@@ -36,70 +36,68 @@ class _LoginPageState extends State<LoginPage> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
-      body: BlocProvider(
-        child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              Container(
-                margin: EdgeInsets.only(top: size.height * 0.2),
-                width: size.width,
-                child: Image(
-                  image: AssetImage('assets/images/logo.png'),
-                ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.only(top: size.height * 0.2),
+              width: size.width,
+              child: Image(
+                image: AssetImage('assets/images/logo.png'),
               ),
-              Container(
-                margin: EdgeInsets.only(
-                    left: size.width * 0.05,
-                    right: size.width * 0.05,
-                    top: size.height * 0.06),
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Login',
-                  ),
-                  controller: _login,
+            ),
+            Container(
+              margin: EdgeInsets.only(
+                  left: size.width * 0.05,
+                  right: size.width * 0.05,
+                  top: size.height * 0.06),
+              child: TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'Login',
                 ),
+                controller: _login,
               ),
-              Container(
+            ),
+            Container(
+              margin: EdgeInsets.only(
+                  left: size.width * 0.05,
+                  right: size.width * 0.05,
+                  top: size.height * 0.07),
+              child: TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'Password',
+                ),
+                controller: _password,
+              ),
+            ),
+            GestureDetector(
+              onTap: (){
+              },
+              child: Container(
                 margin: EdgeInsets.only(
                     left: size.width * 0.05,
                     right: size.width * 0.05,
                     top: size.height * 0.07),
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Password',
-                  ),
-                  controller: _password,
-                ),
-              ),
-              GestureDetector(
-                onTap: (){
-                },
-                child: Container(
-                  margin: EdgeInsets.only(
-                      left: size.width * 0.05,
-                      right: size.width * 0.05,
-                      top: size.height * 0.07),
-                  width: size.width,
-                  height: size.height * 0.08,
-                  decoration: BoxDecoration(
-                      color: Color(0xFF85bb65),
-                      borderRadius: BorderRadius.circular(size.width * 0.02)),
-                  child: Center(
-                    child: Text(
-                      'Sign in',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: size.width * 0.06,
-                        fontWeight: FontWeight.bold,
-                      ),
+                width: size.width,
+                height: size.height * 0.08,
+                decoration: BoxDecoration(
+                    color: Color(0xFF85bb65),
+                    borderRadius: BorderRadius.circular(size.width * 0.02)),
+                child: Center(
+                  child: Text(
+                    'Sign in',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: size.width * 0.06,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       ),
     );
