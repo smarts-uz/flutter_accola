@@ -28,6 +28,7 @@ class _StrogePageState extends State<StrogePage> {
           child: Column(
             children: <Widget>[
               Container(
+
                 width: size.width,
                 height: size.height * 0.2,
                 margin: EdgeInsets.only(
@@ -37,9 +38,9 @@ class _StrogePageState extends State<StrogePage> {
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
-                      offset: Offset(0, 10),
-                      blurRadius: 10,
-                      color: Colors.black.withOpacity(0.29),
+                      offset: Offset(0, 5),
+                      blurRadius: 5,
+                      color: Colors.grey,
                     ),
                   ],
                 ),
@@ -67,9 +68,9 @@ class _StrogePageState extends State<StrogePage> {
                     color: Colors.white,
                     boxShadow: [
                       BoxShadow(
-                        offset: Offset(0, 10),
-                        blurRadius: 10,
-                        color: Colors.black.withOpacity(0.29),
+                        offset: Offset(0, 5),
+                        blurRadius: 5,
+                        color: Colors.grey,
                       ),
                     ],
                   ),

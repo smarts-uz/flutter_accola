@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 class LoginRequestModel {
-  final AuthModel auth;
+  final AuthModels auth;
 
   LoginRequestModel({this.auth});
 
   LoginRequestModel copyWith({
-    AuthModel auth,
+    AuthModels auth,
   }) =>
       LoginRequestModel(
         auth: auth ?? this.auth,
@@ -19,7 +19,7 @@ class LoginRequestModel {
 
   factory LoginRequestModel.fromMap(Map<String, dynamic> json) =>
       LoginRequestModel(
-        auth: AuthModel.fromMap(
+        auth: AuthModels.fromMap(
           json["auth"],
         ),
       );
@@ -29,26 +29,26 @@ class LoginRequestModel {
       };
 }
 
-class AuthModel {
+class AuthModels {
   final String login;
   final String password;
 
-  AuthModel({this.login, this.password});
+  AuthModels({this.login, this.password});
 
-  AuthModel copyWith({
+  AuthModels copyWith({
     String login,
     String password,
   }) =>
-      AuthModel(
+      AuthModels(
         login: login ?? this.login,
         password: password ?? this.password,
       );
 
-  factory AuthModel.fromJson(String str) => AuthModel.fromMap(json.decode(str));
+  factory AuthModels.fromJson(String str) => AuthModels.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
 
-  factory AuthModel.fromMap(Map<String, dynamic> json) => AuthModel(
+  factory AuthModels.fromMap(Map<String, dynamic> json) => AuthModels(
         login: json["login"],
         password: json["password"],
       );

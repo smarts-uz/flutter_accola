@@ -20,8 +20,6 @@ class UsersApiProvider {
     if (response.isSuccess) {
       try {
         LoginResponseModel token = LoginResponseModel.fromJson(response.result);
-        final SharedPreferences prefs = await _prefs;
-        prefs.setString('tokenData', json.encode(token.toJson()));
 
         return token;
       } catch (_) {

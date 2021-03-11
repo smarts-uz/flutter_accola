@@ -57,9 +57,9 @@ class _SumPageState extends State<SumPage> {
                 color: kPrimaryColor,
                 boxShadow: [
                   BoxShadow(
-                    offset: Offset(0, 10),
-                    blurRadius: 10,
-                    color: Colors.black.withOpacity(0.29),
+                    offset: Offset(0, 3),
+                    blurRadius: 3,
+                    color: Colors.grey,
                   ),
                 ],
               ),
@@ -149,9 +149,9 @@ class _SubButtonState extends State<SubButton> {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            offset: Offset(0, 10),
-            blurRadius: 10,
-            color: Colors.black.withOpacity(0.29),
+            offset: Offset(0, 3),
+            blurRadius: 3,
+            color: Colors.grey,
           ),
         ],
       ),

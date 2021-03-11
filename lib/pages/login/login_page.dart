@@ -63,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
               margin: EdgeInsets.only(
                   left: size.width * 0.05,
                   right: size.width * 0.05,
-                  top: size.height * 0.07),
+                  top: size.height * 0.02),
               child: TextField(
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
@@ -73,7 +73,12 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             GestureDetector(
-              onTap: (){
+              onTap: () {
+                // if(_password.text.isNotEmpty && _login.text.isNotEmpty){
+                //   LoginRequestModel param = LoginRequestModel(auth: AuthModels(login:_login.text,password: _password.text));
+                //   LoginResponseModel respon = await usersRepository.login(param);
+                // }
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
               },
               child: Container(
                 margin: EdgeInsets.only(
