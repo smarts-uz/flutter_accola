@@ -1,6 +1,7 @@
 import 'package:accoola/contsant.dart';
 import 'package:accoola/pages/members/members_page.dart';
 import 'package:accoola/pages/storage/stroge_page.dart';
+import 'package:accoola/pages/summa/sum_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -24,17 +25,7 @@ class _HomePageState extends State<HomePage> {
               style: TextStyle(
                   color: kPrimaryColor, fontSize: size.width * 0.08, fontWeight: FontWeight.bold),
             ),
-            top: size.height * 0.13,
-            left: 0.0,
-            right: 0.0,
-          ), Positioned(
-            child: Text(
-              '\$ 10 000.00',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  color: kPrimaryColor, fontSize: size.width * 0.08, fontWeight: FontWeight.bold),
-            ),
-            top: size.height * 0.18,
+            top: size.height * 0.15,
             left: 0.0,
             right: 0.0,
           ),
@@ -77,15 +68,21 @@ class _HomePageState extends State<HomePage> {
                       CardButton(
                           imageUrl: 'assets/icons/ic_sklad.png',
                           title: 'Склад',
-                          press: () {}),
+                          press: () {
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SumPage()));
+                          }),
                       CardButton(
                           imageUrl: 'assets/icons/ic_osnovno.png',
                           title: 'Основные средства',
-                          press: () {}),
+                          press: () {
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SumPage()));
+                          }),
                       CardButton(
                           imageUrl: 'assets/icons/ic_creditor.png',
                           title: 'Займы Кредиты',
-                          press: () {}),
+                          press: () {
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SumPage()));
+                          }),
                     ],
                   ),
                 ),
@@ -95,11 +92,15 @@ class _HomePageState extends State<HomePage> {
                     CardButton(
                         imageUrl: 'assets/icons/ic_debitor.png',
                         title: 'Счета',
-                        press: () {}),
+                        press: () {
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SumPage()));
+                        }),
                     CardButton(
                         imageUrl: 'assets/icons/ic_casheloc.png',
                         title: 'Задолженность по налогам',
-                        press: () {}),
+                        press: () {
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SumPage()));
+                        }),
                     Container(
                       margin: EdgeInsets.only(top: size.width * 0.04),
                       width: size.width / 3.5,

@@ -40,19 +40,12 @@ class membersPage extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.only(
                       top: size.width * 0.08, left: size.width * 0.08),
-                  height: size.height * 0.20,
+                  height: size.height * 0.21,
                   width: size.height * 0.18,
                   decoration: BoxDecoration(
                     color: Color(0xffF9F8F8),
                     borderRadius: BorderRadius.circular(size.width * 0.06),
                     border: Border.all(color: Color(0xffB6B6B6), width: 3),
-                    boxShadow: [
-                      BoxShadow(
-                        offset: Offset(20, 20),
-                        blurRadius: 10,
-                        color: Colors.black.withOpacity(0.1),
-                      ),
-                    ],
                   ),
                   child: Column(
                     children: <Widget>[
@@ -61,21 +54,25 @@ class membersPage extends StatelessWidget {
                         height: size.height * 0.12,
                         margin: EdgeInsets.all(size.height * 0.02),
                         decoration: BoxDecoration(
-                          borderRadius:
-                              BorderRadius.circular(size.width * 0.09),
+                          borderRadius: BorderRadius.circular(size.width * 0.09),
                           color: Color(0xff5D5FEF),
                           boxShadow: [
                             BoxShadow(
-                                offset: Offset(10, 15),
-                                blurRadius: 10,
-                                color: Colors.black.withOpacity(0.2)),
+                                offset: Offset(0, 0),
+                                blurRadius: 5,
+                                color: Colors.grey),
+                            BoxShadow(
+                                offset: Offset(-1, 0),
+                                blurRadius: 5,
+                                color: Colors.grey),
                           ],
                         ),
-                        child: FittedBox(
+                        child: CircleAvatar(
                           child: Image(
+                            width: size.width * 0.2,
+                            fit: BoxFit.cover,
                             image: AssetImage('assets/images/give.png'),
                           ),
-                          fit: BoxFit.fill,
                         ),
                       ),
                       Text(
@@ -83,7 +80,7 @@ class membersPage extends StatelessWidget {
                         style: TextStyle(
                             color: kPrimaryColor,
                             fontWeight: FontWeight.bold,
-                            fontSize: size.width * 0.03),
+                            fontSize: size.width * 0.028),
                       ),
                     ],
                   ),
@@ -91,7 +88,7 @@ class membersPage extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.only(
                       top: size.width * 0.08, right: size.width * 0.08),
-                  height: size.height * 0.20,
+                  height: size.height * 0.21,
                   width: size.height * 0.18,
                   decoration: BoxDecoration(
                     color: Color(0xffF9F8F8),
@@ -100,13 +97,6 @@ class membersPage extends StatelessWidget {
                       color: Color(0xffB6B6B6),
                       width: 3,
                     ),
-                    boxShadow: [
-                      BoxShadow(
-                        offset: Offset(20, 20),
-                        blurRadius: 10,
-                        color: Colors.black.withOpacity(0.1),
-                      ),
-                    ],
                   ),
                   child: Column(
                     children: <Widget>[
@@ -115,25 +105,25 @@ class membersPage extends StatelessWidget {
                         height: size.height * 0.12,
                         margin: EdgeInsets.all(size.height * 0.02),
                         decoration: BoxDecoration(
-                          borderRadius:
-                              BorderRadius.circular(size.width * 0.09),
+                          borderRadius: BorderRadius.circular(size.width * 0.09),
                           color: Color(0xff5D5FEF),
                           boxShadow: [
                             BoxShadow(
-                                offset: Offset(10, 15),
-                                blurRadius: 10,
-                                color: Colors.black.withOpacity(0.2)),
+                                offset: Offset(0, 0),
+                                blurRadius: 5,
+                                color: Colors.grey),
+                            BoxShadow(
+                                offset: Offset(-1, 0),
+                                blurRadius: 5,
+                                color: Colors.grey),
                           ],
                         ),
-                        child: FittedBox(
-                          child: ClipRRect(
-                            borderRadius:
-                                BorderRadius.circular(size.width * 0.09),
-                            child: Image(
-                              image: AssetImage('assets/images/click.png'),
-                            ),
+                        child: CircleAvatar(
+                          child: Image(
+                            width: size.width * 0.2,
+                            fit: BoxFit.cover,
+                            image: AssetImage('assets/images/click.png'),
                           ),
-                          fit: BoxFit.fill,
                         ),
                       ),
                       Text(
@@ -142,7 +132,7 @@ class membersPage extends StatelessWidget {
                         style: TextStyle(
                             color: kPrimaryColor,
                             fontWeight: FontWeight.bold,
-                            fontSize: size.width * 0.03),
+                            fontSize: size.width * 0.028),
                       ),
                     ],
                   ),
@@ -152,24 +142,29 @@ class membersPage extends StatelessWidget {
             Column(
               children: [
                 Container(
-                  height: size.height*0.32,
-                  width: size.width*0.93,
-                  padding: EdgeInsets.all(size.width*0.04),
+                  height: size.height * 0.32,
+                  width: size.width * 0.93,
+                  padding: EdgeInsets.all(size.width * 0.04),
                   decoration: BoxDecoration(
                     color: kPrimaryColor,
-                    borderRadius: BorderRadius.circular(size.width*0.03),
-                    border: Border.all(
-                        color: Color(0xffB6B6B6),
-                        width: 3
-                    ),
+                    borderRadius: BorderRadius.circular(size.width * 0.03),
+                    border: Border.all(color: Color(0xffB6B6B6), width: 3),
                   ),
-                  margin: EdgeInsets.only(top: size.height* 0.04),
+                  margin: EdgeInsets.only(top: size.height * 0.02),
                   child: Column(
                     children: <Widget>[
-                      memberContainer(membersNames: "Иванов иван иванович",membersRanks: 'директор',),
-                      memberContainer(membersNames: "Сергеев сергей петрович",membersRanks: 'Мастер производства',),
-                      memberContainer(membersNames: "Петров сергей иванович ",membersRanks: 'Помощник мастера',),
-
+                      memberContainer(
+                        membersNames: "Иванов иван иванович",
+                        membersRanks: 'директор',
+                      ),
+                      memberContainer(
+                        membersNames: "Сергеев сергей петрович",
+                        membersRanks: 'Мастер производства',
+                      ),
+                      memberContainer(
+                        membersNames: "Петров сергей иванович ",
+                        membersRanks: 'Помощник мастера',
+                      ),
                     ],
                   ),
                 ),
@@ -178,24 +173,29 @@ class membersPage extends StatelessWidget {
             Column(
               children: [
                 Container(
-                  height: size.height*0.32,
-                  width: size.width*0.93,
-                  padding: EdgeInsets.all(size.width*0.04),
+                  height: size.height * 0.32,
+                  width: size.width * 0.93,
+                  padding: EdgeInsets.all(size.width * 0.04),
                   decoration: BoxDecoration(
                     color: kPrimaryColor,
-                    borderRadius: BorderRadius.circular(size.width*0.03),
-                    border: Border.all(
-                        color: Color(0xffB6B6B6),
-                        width: 3
-                    ),
+                    borderRadius: BorderRadius.circular(size.width * 0.03),
+                    border: Border.all(color: Color(0xffB6B6B6), width: 3),
                   ),
-                  margin: EdgeInsets.only(top: size.height* 0.04),
+                  margin: EdgeInsets.only(top: size.height * 0.01),
                   child: Column(
                     children: <Widget>[
-                      memberContainer(membersNames: "Иванов иван иванович",membersRanks: 'директор',),
-                      memberContainer(membersNames: "Сергеев сергей петрович",membersRanks: 'Мастер производства',),
-                      memberContainer(membersNames: "Петров сергей иванович ",membersRanks: 'Помощник мастера',),
-
+                      memberContainer(
+                        membersNames: "Иванов иван иванович",
+                        membersRanks: 'директор',
+                      ),
+                      memberContainer(
+                        membersNames: "Сергеев сергей петрович",
+                        membersRanks: 'Мастер производства',
+                      ),
+                      memberContainer(
+                        membersNames: "Петров сергей иванович ",
+                        membersRanks: 'Помощник мастера',
+                      ),
                     ],
                   ),
                 ),
@@ -209,9 +209,11 @@ class membersPage extends StatelessWidget {
 }
 
 class memberContainer extends StatefulWidget {
-  memberContainer({Key  key ,  this.membersNames , this.membersRanks }): super(key: key);
+  memberContainer({Key key, this.membersNames, this.membersRanks})
+      : super(key: key);
   String membersNames;
   String membersRanks;
+
   @override
   _memberContainerState createState() => _memberContainerState();
 }
@@ -225,44 +227,43 @@ class _memberContainerState extends State<memberContainer> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            width: size.width*0.13,
-            height: size.height*0.06,
+            width: size.width * 0.13,
+            height: size.height * 0.06,
             child: Image(
-                image: AssetImage('assets/images/person.jpg'),
+              image: AssetImage('assets/images/person.jpg'),
             ),
           ),
           Container(
-              height: size.height* 0.058,
-              width: size.width*0.34,
-              margin: EdgeInsets.only(left: size.width*0.05),
-              child: Text(
-                  widget.membersNames,
-                  textAlign: TextAlign.left,
-                style: TextStyle(color: Colors.white , fontSize: size.width* 0.04),
-              ),
+            height: size.height * 0.058,
+            width: size.width * 0.34,
+            margin: EdgeInsets.only(left: size.width * 0.05),
+            child: Text(
+              widget.membersNames,
+              textAlign: TextAlign.left,
+              style:
+                  TextStyle(color: Colors.white, fontSize: size.width * 0.04),
+            ),
           ),
           Container(
-            height: size.height*0.09,
-            width: size.width*0.3,
+            height: size.height * 0.09,
+            width: size.width * 0.3,
             child: Column(
               children: [
                 Text(
                   "12.03.2021",
                   style: TextStyle(
-                    fontSize: size.width*0.022,
+                    fontSize: size.width * 0.022,
                     color: Color(0xffCACACA),
                   ),
                 ),
                 Container(
-                  width: size.width* 0.28,
-                  child: Text(
-                      widget.membersRanks,
+                  width: size.width * 0.28,
+                  child: Text(widget.membersRanks,
                       style: TextStyle(
-                          fontSize: size.width*0.04,
-                          color: Colors.white,
+                        fontSize: size.width * 0.04,
+                        color: Colors.white,
                       ),
-                      textAlign: TextAlign.left
-                  ),
+                      textAlign: TextAlign.left),
                 ),
               ],
             ),
