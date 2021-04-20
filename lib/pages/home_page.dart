@@ -1,7 +1,4 @@
 import 'package:accoola/contsant.dart';
-import 'package:accoola/pages/members/members_page.dart';
-import 'package:accoola/pages/storage/stroge_page.dart';
-import 'package:accoola/pages/summa/sum_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -23,7 +20,9 @@ class _HomePageState extends State<HomePage> {
               'Shodmonov Uchqun',
               textAlign: TextAlign.center,
               style: TextStyle(
-                  color: kPrimaryColor, fontSize: size.width * 0.08, fontWeight: FontWeight.bold),
+                  color: kPrimaryColor,
+                  fontSize: size.width * 0.08,
+                  fontWeight: FontWeight.bold),
             ),
             top: size.height * 0.15,
             left: 0.0,
@@ -44,8 +43,9 @@ class _HomePageState extends State<HomePage> {
                         imageUrl: 'assets/icons/ic_casheloc.png',
                         title: 'Счета',
                         press: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => StrogePage()));
+                          Navigator.of(context).pushNamed(
+                            '/storage',
+                          );
                         }),
                     CardButton(
                         imageUrl: 'assets/icons/ic_debitor.png',
@@ -55,7 +55,9 @@ class _HomePageState extends State<HomePage> {
                         imageUrl: 'assets/icons/ic_cotrudniki.png',
                         title: 'Сотрудники',
                         press: () {
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => membersPage()));
+                          Navigator.of(context).pushNamed(
+                            '/members',
+                          );
                         }),
                   ],
                 ),
@@ -69,19 +71,25 @@ class _HomePageState extends State<HomePage> {
                           imageUrl: 'assets/icons/ic_sklad.png',
                           title: 'Склад',
                           press: () {
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SumPage()));
+                            Navigator.of(context).pushNamed(
+                              '/sum',
+                            );
                           }),
                       CardButton(
                           imageUrl: 'assets/icons/ic_osnovno.png',
                           title: 'Основные средства',
                           press: () {
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SumPage()));
+                            Navigator.of(context).pushNamed(
+                              '/sum',
+                            );
                           }),
                       CardButton(
                           imageUrl: 'assets/icons/ic_creditor.png',
                           title: 'Займы Кредиты',
                           press: () {
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SumPage()));
+                            Navigator.of(context).pushNamed(
+                              '/sum',
+                            );
                           }),
                     ],
                   ),
@@ -93,13 +101,17 @@ class _HomePageState extends State<HomePage> {
                         imageUrl: 'assets/icons/ic_debitor.png',
                         title: 'Счета',
                         press: () {
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SumPage()));
+                          Navigator.of(context).pushNamed(
+                            '/sum',
+                          );
                         }),
                     CardButton(
                         imageUrl: 'assets/icons/ic_casheloc.png',
                         title: 'Задолженность по налогам',
                         press: () {
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SumPage()));
+                          Navigator.of(context).pushNamed(
+                            '/sum',
+                          );
                         }),
                     Container(
                       margin: EdgeInsets.only(top: size.width * 0.04),

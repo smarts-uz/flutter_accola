@@ -1,16 +1,12 @@
 import 'package:accoola/contsant.dart';
-import 'package:accoola/pages/summa/sum_page.dart';
-import 'package:accoola/pages/login/login_page.dart';
 import 'package:flutter/material.dart';
 
-
-
-class StrogePage extends StatefulWidget {
+class StoragePage extends StatefulWidget {
   @override
-  _StrogePageState createState() => _StrogePageState();
+  _StoragePageState createState() => _StoragePageState();
 }
 
-class _StrogePageState extends State<StrogePage> {
+class _StoragePageState extends State<StoragePage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -18,8 +14,8 @@ class _StrogePageState extends State<StrogePage> {
       appBar: AppBar(
         backgroundColor: kPrimaryColor.withOpacity(0.8),
         title: Text(
-          "Склад",
-          style: TextStyle(fontSize: size.width*0.065),
+          'Склад',
+          style: TextStyle(fontSize: size.width * 0.065),
         ),
         centerTitle: true,
       ),
@@ -28,7 +24,6 @@ class _StrogePageState extends State<StrogePage> {
           child: Column(
             children: <Widget>[
               Container(
-
                 width: size.width,
                 height: size.height * 0.2,
                 margin: EdgeInsets.only(
@@ -47,14 +42,19 @@ class _StrogePageState extends State<StrogePage> {
                 child: Center(
                   child: Text(
                     "Товары на складе",
-                    style: TextStyle(fontSize: size.width*0.07, fontWeight: FontWeight.bold, color: kPrimaryColor),
+                    style: TextStyle(
+                        fontSize: size.width * 0.07,
+                        fontWeight: FontWeight.bold,
+                        color: kPrimaryColor),
                     textAlign: TextAlign.center,
                   ),
                 ),
               ),
               GestureDetector(
-                onTap: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SumPage()));
+                onTap: () {
+                  Navigator.of(context).pushNamed(
+                    '/sum',
+                  );
                 },
                 child: Container(
                   width: size.width,
@@ -77,7 +77,10 @@ class _StrogePageState extends State<StrogePage> {
                   child: Center(
                     child: Text(
                       "Сырье и материалы",
-                      style: TextStyle(fontSize: size.width*0.07, fontWeight: FontWeight.bold, color: kPrimaryColor),
+                      style: TextStyle(
+                          fontSize: size.width * 0.07,
+                          fontWeight: FontWeight.bold,
+                          color: kPrimaryColor),
                       textAlign: TextAlign.center,
                     ),
                   ),

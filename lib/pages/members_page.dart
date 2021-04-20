@@ -2,7 +2,7 @@ import 'package:accoola/contsant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class membersPage extends StatelessWidget {
+class MembersPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -54,7 +54,8 @@ class membersPage extends StatelessWidget {
                         height: size.height * 0.12,
                         margin: EdgeInsets.all(size.height * 0.02),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(size.width * 0.09),
+                          borderRadius:
+                              BorderRadius.circular(size.width * 0.09),
                           color: Color(0xff5D5FEF),
                           boxShadow: [
                             BoxShadow(
@@ -105,7 +106,8 @@ class membersPage extends StatelessWidget {
                         height: size.height * 0.12,
                         margin: EdgeInsets.all(size.height * 0.02),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(size.width * 0.09),
+                          borderRadius:
+                              BorderRadius.circular(size.width * 0.09),
                           color: Color(0xff5D5FEF),
                           boxShadow: [
                             BoxShadow(

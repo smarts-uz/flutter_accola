@@ -24,6 +24,7 @@ dependencies:
   bloc_test: ^7.1.0
   catcher: ^0.4.0
   equatable: ^1.2.4
+  lint: ^1.5.3
 
 dev_dependencies:
   flutter_test:
