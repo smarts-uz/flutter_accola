@@ -6,3 +6,11 @@ abstract class Bloc111Event extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class PageOpened extends Bloc111Event {
+  final Request request;
+
+  PageOpened({this.request});
+}
+
+class ListLoading extends Bloc111Event {}

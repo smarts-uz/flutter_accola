@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:ffi';
 
 import 'package:accoola/repositories/111/repository.dart';
-import 'package:accoola/service/models/resp120.dart';
+import 'package:accoola/service/models/resp121.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -11,31 +11,28 @@ import 'package:intl/intl.dart';
 
 import '../contsant.dart';
 
-class SumPage119 extends StatefulWidget {
-  const SumPage119({Key key}) : super(key: key);
+class SumPage121 extends StatefulWidget {
+  const SumPage121({Key key}) : super(key: key);
 
   @override
   _SumPageState createState() => _SumPageState();
 }
 
-class _SumPageState extends State<SumPage119> {
+class _SumPageState extends State<SumPage121> {
+  Resp121 resp112 = Resp121();
   String dateNow = DateFormat('dd.MM.yyyy').format(DateTime.now());
-  Resp120 resp112 = Resp120();
-  num summ = 0;
-
   final _repository = Repository111();
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     double summa = 0;
 
-    Size size = MediaQuery.of(context).size;
-    // 'Валютный счет',
     return Scaffold(
       appBar: AppBar(
         // backgroundColor: kPrimaryColor.withOpacity(0.8),
         title: Text(
-          'Кредиторы',
+          'Основные средства',
           style: TextStyle(fontSize: size.width * 0.065),
         ),
         leading: BackButton(onPressed: () => Navigator.of(context).pop()),
@@ -59,9 +56,7 @@ class _SumPageState extends State<SumPage119> {
                             fontSize: 18),
                         doneStyle:
                             TextStyle(color: Colors.white, fontSize: 16)),
-                    onChanged: (date) {
-                  print('{RESSED}' + date.timeZoneOffset.inHours.toString());
-                }, onConfirm: (date) {
+                    onChanged: (date) {}, onConfirm: (date) {
                   setState(() {
                     dateNow = DateFormat('dd.MM.yyyy').format(date).toString();
                   });
@@ -83,11 +78,11 @@ class _SumPageState extends State<SumPage119> {
             FutureBuilder(
               future: _repository.getResult(
                   login: LOGIN,
-                  code: '120',
+                  code: '121',
                   password: PASSWORD,
                   date: dateNow,
                   dateK: '31.03.2021',
-                  dateN: '01.11.2020'),
+                  dateN: '09.03.2020'),
               builder: (context, snapshot) {
                 if (!snapshot.hasData) {
                   return Center(
@@ -97,14 +92,14 @@ class _SumPageState extends State<SumPage119> {
                     ),
                   );
                 }
-                resp112 = Resp120.fromJson(jsonDecode(snapshot.data));
+                resp112 = Resp121.fromJson(jsonDecode(snapshot.data));
+                print('DEBITOR' + snapshot.data.toString());
 
                 if (resp112.data.isNotEmpty) {
                   summa = 0;
-
                   for (var i = 0; i < resp112.data.length; i++) {
                     summa = summa +
-                        (double.parse(resp112.data[0].ostatok
+                        (double.parse(resp112.data[i].datum
                             .replaceAll(new RegExp(r"\s+"), "")
                             .replaceAll(new RegExp(','), ".")));
                   }
@@ -136,7 +131,7 @@ class _SumPageState extends State<SumPage119> {
                         ),
                         child: CardSum(
                           summ: summa.toString(),
-                          color: Theme.of(context).accentColor,
+                          color: Colors.redAccent,
                         ),
                       ),
                       Container(
@@ -160,7 +155,7 @@ class _SumPageState extends State<SumPage119> {
                             Padding(
                               padding: EdgeInsets.only(left: size.width * 0.05),
                               child: Text(
-                                'Контрагент',
+                                'ОС',
                                 style: TextStyle(
                                   fontSize: size.width * 0.025,
                                   color: kPrimaryColor,
@@ -169,7 +164,7 @@ class _SumPageState extends State<SumPage119> {
                               ),
                             ),
                             Text(
-                              'Договор',
+                              'КоличествоОстаток',
                               style: TextStyle(
                                 fontSize: size.width * 0.025,
                                 color: kPrimaryColor,
@@ -178,7 +173,7 @@ class _SumPageState extends State<SumPage119> {
                             ),
                             Padding(
                               padding:
-                                  EdgeInsets.only(right: size.width * 0.05),
+                              EdgeInsets.only(right: size.width * 0.05),
                               child: Text(
                                 'СуммаОстаток',
                                 style: TextStyle(
@@ -191,15 +186,16 @@ class _SumPageState extends State<SumPage119> {
                           ],
                         ),
                       ),
+
                       ListView.builder(
                         shrinkWrap: true,
-                        physics: ClampingScrollPhysics(),
                         scrollDirection: Axis.vertical,
+                        physics: ClampingScrollPhysics(),
                         itemBuilder: (context, index) {
                           return SubButton(
-                            title: resp112.data[index].kontragent,
-                            sum: resp112.data[index].ostatok,
-                            count: resp112.data[index].dogobor,
+                            title: resp112.data[index].purple,
+                            count: resp112.data[index].datum,
+                            sum: 12312313123,
                           );
                         },
                         itemCount: resp112.data.length,
@@ -251,7 +247,6 @@ class _SumPageState extends State<SumPage119> {
         ),
       ),
     );
-    ;
   }
 }
 
@@ -268,6 +263,8 @@ class CardSum extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    print('OBJECT' + summ.toString());
+
     return Row(
       children: <Widget>[
         RichText(
@@ -300,7 +297,7 @@ class SubButton extends StatefulWidget {
   SubButton({Key key, this.title, this.count, this.sum}) : super(key: key);
   String title;
   String count;
-  String sum;
+  int sum;
 
   @override
   _SubButtonState createState() => _SubButtonState();
@@ -309,6 +306,8 @@ class SubButton extends StatefulWidget {
 class _SubButtonState extends State<SubButton> {
   @override
   Widget build(BuildContext context) {
+    String sum = widget.sum.toString();
+    String count = widget.count.toString();
     Size size = MediaQuery.of(context).size;
     return Container(
       width: size.width,
@@ -341,7 +340,7 @@ class _SubButtonState extends State<SubButton> {
             textAlign: TextAlign.center,
           ),
           Text(
-            widget.count,
+            count,
             style: TextStyle(
               fontSize: size.width * 0.02,
               color: kPrimaryColor,
@@ -349,7 +348,7 @@ class _SubButtonState extends State<SubButton> {
             textAlign: TextAlign.left,
           ),
           Text(
-            widget.sum,
+            sum,
             style: TextStyle(
                 fontSize: size.width * 0.02,
                 fontWeight: FontWeight.bold,

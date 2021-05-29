@@ -26,20 +26,20 @@ class Resp111 {
 
 class Datum {
   Datum({
-    this.empty,
+    this.schet,
     this.datum,
   });
 
-  String empty;
+  String schet;
   String datum;
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
-        empty: json["БанковскийСчет"],
+        schet: json['БанковскийСчет'],
         datum: json["СуммаОстаток"],
       );
 
   Map<String, dynamic> toJson() => {
-        "БанковскийСчет": empty,
+        "БанковскийСчет": schet,
         "СуммаОстаток": datum,
       };
 }
