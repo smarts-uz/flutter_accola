@@ -1,4 +1,11 @@
 import 'package:accoola/contsant.dart';
+import 'package:accoola/pages/credits.dart';
+import 'package:accoola/pages/members_page.dart';
+import 'package:accoola/pages/stroge_page.dart';
+import 'package:accoola/pages/sum_page.dart';
+import 'package:accoola/pages/sum_page117.dart';
+import 'package:accoola/pages/sum_page121.dart';
+import 'package:accoola/pages/summary_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -13,29 +20,17 @@ class _HomePageState extends State<HomePage> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Stack(
-        children: <Widget>[
-          Positioned(
-            child: Text(
-              'Shodmonov Uchqun',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  color: kPrimaryColor,
-                  fontSize: size.width * 0.08,
-                  fontWeight: FontWeight.bold),
-            ),
-            top: size.height * 0.15,
-            left: 0.0,
-            right: 0.0,
-          ),
-          Positioned(
-            top: 0.0,
-            bottom: 0.0,
-            left: 0.0,
-            right: 0.0,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
+      body: Center(
+        child: Container(
+          height: size.height,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(top: size.width * 0.03),
+                  width: size.width / 3.5,
+                  height: size.width / 9,
+                ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -43,87 +38,78 @@ class _HomePageState extends State<HomePage> {
                         imageUrl: 'assets/icons/ic_casheloc.png',
                         title: 'Счета',
                         press: () {
-                          Navigator.of(context).pushNamed(
-                            '/storage',
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SummaryPage(code: '111')),
                           );
                         }),
                     CardButton(
                         imageUrl: 'assets/icons/ic_debitor.png',
                         title: 'Кредиторы',
-                        press: () {}),
+                        press: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SumPage119()),
+                          );
+                        }),
+                    CardButton(
+                        imageUrl: 'assets/icons/ic_sklad.png',
+                        title: 'Склад',
+                        press: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => StoragePage()),
+                          );
+                        }),
+                    CardButton(
+                        imageUrl: 'assets/icons/ic_osnovno.png',
+                        title: 'Основные средства',
+                        press: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SumPage121()),
+                          );
+                        }),
+                    CardButton(
+                        imageUrl: 'assets/icons/ic_creditor.png',
+                        title: 'Займы Кредиты',
+                        press: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => CreditsPage()),
+                          );
+                        }),
+                    CardButton(
+                        imageUrl: 'assets/icons/ic_debitor.png',
+                        title: 'Дебиторы',
+                        press: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SumPage117()),
+                          );
+                        }),
                     CardButton(
                         imageUrl: 'assets/icons/ic_cotrudniki.png',
                         title: 'Сотрудники',
                         press: () {
-                          Navigator.of(context).pushNamed(
-                            '/members',
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => MembersPage()),
                           );
                         }),
-                  ],
-                ),
-                Container(
-                  margin: EdgeInsets.only(
-                      left: size.width * 0.02, right: size.width * 0.02),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      CardButton(
-                          imageUrl: 'assets/icons/ic_sklad.png',
-                          title: 'Склад',
-                          press: () {
-                            Navigator.of(context).pushNamed(
-                              '/sum',
-                            );
-                          }),
-                      CardButton(
-                          imageUrl: 'assets/icons/ic_osnovno.png',
-                          title: 'Основные средства',
-                          press: () {
-                            Navigator.of(context).pushNamed(
-                              '/sum',
-                            );
-                          }),
-                      CardButton(
-                          imageUrl: 'assets/icons/ic_creditor.png',
-                          title: 'Займы Кредиты',
-                          press: () {
-                            Navigator.of(context).pushNamed(
-                              '/sum',
-                            );
-                          }),
-                    ],
-                  ),
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    CardButton(
-                        imageUrl: 'assets/icons/ic_debitor.png',
-                        title: 'Счета',
-                        press: () {
-                          Navigator.of(context).pushNamed(
-                            '/sum',
-                          );
-                        }),
-                    CardButton(
-                        imageUrl: 'assets/icons/ic_casheloc.png',
-                        title: 'Задолженность по налогам',
-                        press: () {
-                          Navigator.of(context).pushNamed(
-                            '/sum',
-                          );
-                        }),
-                    Container(
-                      margin: EdgeInsets.only(top: size.width * 0.04),
-                      width: size.width / 3.5,
-                      height: size.width / 3.5,
-                    )
                   ],
                 ),
               ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }
@@ -184,8 +170,8 @@ class CardButton extends StatelessWidget {
             ),
           ],
         ),
-        width: size.width / 3.5,
-        height: size.width / 3.5,
+        width: size.width / 1.2,
+        height: size.width / 3,
       ),
     );
   }

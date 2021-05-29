@@ -9,6 +9,8 @@ abstract class LoginEvent extends Equatable {
 
 class LoginPressed extends LoginEvent {
   final LoginRequest request;
+
   LoginPressed({this.request});
 }
-class IsLoginnedBefore extends LoginEvent{}
+
+class IsLoginnedBefore extends LoginEvent {}

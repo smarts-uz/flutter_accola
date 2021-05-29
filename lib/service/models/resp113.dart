@@ -4,18 +4,18 @@
 
 import 'dart:convert';
 
-Resp112 resp112FromJson(String str) => Resp112.fromJson(json.decode(str));
+Resp113 resp113FromJson(String str) => Resp113.fromJson(json.decode(str));
 
-String resp112ToJson(Resp112 data) => json.encode(data.toJson());
+String resp113ToJson(Resp113 data) => json.encode(data.toJson());
 
-class Resp112 {
-  Resp112({
+class Resp113 {
+  Resp113({
     this.data,
   });
 
   List<Datum> data;
 
-  factory Resp112.fromJson(Map<String, dynamic> json) => Resp112(
+  factory Resp113.fromJson(Map<String, dynamic> json) => Resp113(
         data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
       );
 
@@ -34,12 +34,12 @@ class Datum {
   String datum;
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
-        empty: json["Товары на складе"],
+        empty: json["ТоварыНаСкладе"],
         datum: json["СуммаОстаток"],
       );
 
   Map<String, dynamic> toJson() => {
-        "Товары на складе": empty,
+        "ТоварыНаСкладе": empty,
         "СуммаОстаток": datum,
       };
 }

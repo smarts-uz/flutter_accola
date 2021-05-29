@@ -1,34 +1,33 @@
 import 'dart:convert';
 
 import 'package:accoola/contsant.dart';
-import 'package:accoola/pages/sum_page115.dart';
-import 'package:accoola/pages/sum_page116.dart';
+import 'package:accoola/pages/sum_page125.dart';
+import 'package:accoola/pages/sum_page126.dart';
 import 'package:accoola/repositories/111/repository.dart';
-import 'package:accoola/service/models/resp113.dart';
-import 'package:accoola/service/models/resp114.dart';
+import 'package:accoola/service/models/resp124.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class StoragePage extends StatefulWidget {
+class CreditsPage extends StatefulWidget {
   @override
-  _StoragePageState createState() => _StoragePageState();
+  _CreditsPageState createState() => _CreditsPageState();
 }
 
-class _StoragePageState extends State<StoragePage> {
+class _CreditsPageState extends State<CreditsPage> {
   final _repository = Repository111();
 
   @override
   Widget build(BuildContext context) {
     String dateNow = DateFormat('dd.MM.yyyy').format(DateTime.now());
 
-    Resp113 resp113 = Resp113();
-    Resp114 resp114 = Resp114();
+    Resp124 resp113 = Resp124();
+    Resp124 resp114 = Resp124();
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kPrimaryColor.withOpacity(0.8),
         title: Text(
-          'Склад',
+          'Займы Кредиты',
           style: TextStyle(fontSize: size.width * 0.065),
         ),
         centerTitle: true,
@@ -40,7 +39,7 @@ class _StoragePageState extends State<StoragePage> {
               FutureBuilder(
                   future: _repository.getResult(
                       login: LOGIN,
-                      code: '113',
+                      code: '124',
                       password: PASSWORD,
                       date: dateNow,
                       dateK: '09.03.2020',
@@ -54,18 +53,15 @@ class _StoragePageState extends State<StoragePage> {
                         ),
                       );
                     }
-                    resp113 = Resp113.fromJson(jsonDecode(snapshot.data));
+                    resp113 = Resp124.fromJson(jsonDecode(snapshot.data));
 
-                    print('data[0].datum ==== ' + resp113.data[0].empty);
-                    print('data[0].datum ==== ' + resp113.data[0].datum);
-                    if (resp113.data[0].empty != null &&
-                        resp113.data[0].datum != null) {
+                    if (resp113.data != null) {
                       return GestureDetector(
                         onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SumPage115()),
+                                builder: (context) => SumPage125()),
                           );
                         },
                         child: Container(
@@ -91,7 +87,7 @@ class _StoragePageState extends State<StoragePage> {
                               children: [
                                 SizedBox(height: 15.0),
                                 Text(
-                                  "Товары на складе",
+                                  "Займы Полученные",
                                   style: TextStyle(
                                       fontSize: size.width * 0.07,
                                       fontWeight: FontWeight.bold,
@@ -99,14 +95,6 @@ class _StoragePageState extends State<StoragePage> {
                                   textAlign: TextAlign.center,
                                 ),
                                 SizedBox(height: 15.0),
-                                Text(
-                                  '${resp113.data[0].datum} сум',
-                                  style: TextStyle(
-                                      fontSize: size.width * 0.07,
-                                      fontWeight: FontWeight.bold,
-                                      color: kPrimaryColor),
-                                  textAlign: TextAlign.center,
-                                ),
                               ],
                             ),
                           ),
@@ -118,7 +106,7 @@ class _StoragePageState extends State<StoragePage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SumPage115()),
+                                builder: (context) => SumPage125()),
                           );
                         },
                         child: Container(
@@ -141,7 +129,7 @@ class _StoragePageState extends State<StoragePage> {
                           ),
                           child: Center(
                             child: Text(
-                              "Товары на складе",
+                              "Займы Полученные",
                               style: TextStyle(
                                   fontSize: size.width * 0.07,
                                   fontWeight: FontWeight.bold,
@@ -159,7 +147,7 @@ class _StoragePageState extends State<StoragePage> {
               FutureBuilder(
                   future: _repository.getResult(
                       login: LOGIN,
-                      code: '114',
+                      code: '125',
                       password: PASSWORD,
                       date: '09.05.2020',
                       dateK: '31.03.2021',
@@ -173,15 +161,14 @@ class _StoragePageState extends State<StoragePage> {
                         ),
                       );
                     }
-                    resp114 = Resp114.fromJson(jsonDecode(snapshot.data));
-                    if (resp114.data[0].empty != null &&
-                        resp114.data[0].datum != null) {
+                    resp114 = Resp124.fromJson(jsonDecode(snapshot.data));
+                    if (resp114.data != null) {
                       return GestureDetector(
                         onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SumPage116()),
+                                builder: (context) => SumPage126()),
                           );
                         },
                         child: Container(
@@ -207,7 +194,7 @@ class _StoragePageState extends State<StoragePage> {
                               children: [
                                 SizedBox(height: 15.0),
                                 Text(
-                                  "Сырье и материалы",
+                                  "Займы Выданные",
                                   style: TextStyle(
                                       fontSize: size.width * 0.07,
                                       fontWeight: FontWeight.bold,
@@ -215,14 +202,6 @@ class _StoragePageState extends State<StoragePage> {
                                   textAlign: TextAlign.center,
                                 ),
                                 SizedBox(height: 15.0),
-                                Text(
-                                  '${resp114.data[0].empty} сум',
-                                  style: TextStyle(
-                                      fontSize: size.width * 0.07,
-                                      fontWeight: FontWeight.bold,
-                                      color: kPrimaryColor),
-                                  textAlign: TextAlign.center,
-                                ),
                               ],
                             ),
                           ),
@@ -234,7 +213,7 @@ class _StoragePageState extends State<StoragePage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SumPage116()),
+                                builder: (context) => SumPage126()),
                           );
                         },
                         child: Container(
