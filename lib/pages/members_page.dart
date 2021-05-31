@@ -89,7 +89,7 @@ class _MembersPageState extends State<MembersPage> {
                             child: Image(
                               width: size.width * 0.2,
                               fit: BoxFit.cover,
-                              image: AssetImage('assets/images/give.png'),
+                              image: AssetImage('assets/images/alms.png'),
                             ),
                           ),
                         ),
